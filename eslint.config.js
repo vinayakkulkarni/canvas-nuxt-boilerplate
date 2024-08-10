@@ -24,6 +24,11 @@ export default createConfigForNuxt({
     rules: {
       'vue/max-attributes-per-line': ['error', { singleline: 5, multiline: 1 }],
       'vue/html-indent': ['error', 2],
-      'vue/multi-word-component-names': ['off'],
+    },
+  })
+  .override('nuxt/vue/rules', {
+    files: ['app/pages/**/*.vue'],
+    rules: {
+      'vue/multi-word-component-names': 'off',
     },
   });
