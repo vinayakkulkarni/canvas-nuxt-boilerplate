@@ -1,7 +1,6 @@
 <script setup lang="ts">
-  import { ref, reactive, onMounted, onUnmounted } from 'vue';
-  import type { CanvasInterface } from '@dscvr-one/canvas-client-sdk';
   import { CanvasClient } from '@dscvr-one/canvas-client-sdk';
+  import type { CanvasInterface } from '@dscvr-one/canvas-client-sdk';
   import { validateHostMessage } from '~/utils/dscvr';
 
   interface CanvasState {
