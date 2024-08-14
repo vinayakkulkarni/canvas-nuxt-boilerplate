@@ -1,3 +1,3 @@
 <template>
-  <nuxt-page class="w-dvw h-dvh bg-gray-900" />
+  <nuxt-page class="bg-gray-900" />
 </template>
