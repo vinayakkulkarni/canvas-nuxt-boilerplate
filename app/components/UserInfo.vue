@@ -4,7 +4,10 @@
   defineProps<{
     user: CanvasInterface.Lifecycle.User;
   }>();
-  const emit = defineEmits(['open']);
+
+  const emit = defineEmits<{
+    (e: 'open'): void;
+  }>();
 </script>
 
 <template>

@@ -59,13 +59,26 @@
     const url = `https://dscvr.one/u/${state.user.username}`;
     state.client.openLink(url);
   };
+  const setBodyHeight = (height: number) => {
+    document.body.style.height = height ? `${height}px` : '';
+  };
 </script>
 
 <template>
   <div v-if="state.isReady">
     <div class="p-4 grid grid-cols-1 gap-3">
-      <UserInfo v-if="state.user" :user="state.user" @open="openUserProfile" />
-      <HeightButtons />
+      <user-info v-if="state.user" :user="state.user" @open="openUserProfile" />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <button
+          v-for="height in [1000, 1500, 0]"
+          :key="height"
+          type="button"
+          class="text-white font-bold py-2 px-4 rounded bg-gray-500 hover:bg-gray-400 hover:border-gray-500"
+          @click="setBodyHeight(height)"
+        >
+          {{ height ? `Set height to ${height}px` : 'Reset height' }}
+        </button>
+      </div>
     </div>
   </div>
 </template>
