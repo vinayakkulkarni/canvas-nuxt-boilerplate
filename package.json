@@ -27,7 +27,7 @@
     "@dscvr-one/canvas-client-sdk": "^1.0.7",
     "@nuxt/eslint": "^0.5.0",
     "nuxt": "^3.12.4",
-    "vue": "^3.4.37"
+    "vue": "^3.4.38"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.4.0",
