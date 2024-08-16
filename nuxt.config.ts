@@ -1,7 +1,4 @@
 export default defineNuxtConfig({
-  compatibilityDate: '2024-04-03',
-  devtools: { enabled: true },
-  future: { compatibilityVersion: 4 },
   app: {
     head: {
       title: 'DSCVR Canvas Boilerplate | Nuxt',
@@ -69,7 +66,13 @@ export default defineNuxtConfig({
       ],
     },
   },
-  css: ['~/assets/css/global.css', '~/assets/css/fonts.css'],
+  compatibilityDate: '2024-04-03',
+  css: ['~/assets/css/global.css'],
+  devtools: { enabled: true },
+  experimental: {
+    renderJsonPayloads: true,
+  },
+  future: { compatibilityVersion: 4 },
   modules: [
     // https://nuxt.com/blog/eslint-module
     '@nuxt/eslint',
@@ -79,11 +82,16 @@ export default defineNuxtConfig({
     '@nuxtjs/plausible',
     // https://unocss.dev/integrations/nuxt
     '@unocss/nuxt',
+    // https://nuxt.com/modules/fontaine
+    '@nuxtjs/fontaine',
+    // Canvas
+    // Local module(s)
+    '@vinayakkulkarni/canvas-module',
   ],
   plausible: {
     hashMode: false,
     trackLocalhost: false,
-    domain: 'canvas-nuxt-boilerplate.netlify.app',
+    domain: 'canvas-nuxt-boilerplate.nuxt.dev',
     apiHost: 'https://analytics.geoql.in',
     autoPageviews: true,
     autoOutboundTracking: true,
@@ -93,5 +101,10 @@ export default defineNuxtConfig({
     icons: true,
     components: false,
     shortcuts: [],
+  },
+  vite: {
+    optimizeDeps: {
+      include: ['eventemitter3'],
+    },
   },
 });
