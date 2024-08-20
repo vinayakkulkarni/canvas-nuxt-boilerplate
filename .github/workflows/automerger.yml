@@ -1,4 +1,4 @@
-name: 'Automerge Dependabot PRs'
+name: 'Automerge'
 
 on: pull_request_target
 
@@ -7,9 +7,41 @@ permissions:
   contents: write
 
 jobs:
+  lockfile:
+    name: 'Update bun lockfile'
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository 🎉 (dependabot)
+        if: ${{ github.actor == 'dependabot[bot]' }}
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Setup bun env 🐰
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies 🚀
+        run: bun install
+
+      - name: Setup GitHub Actor 🤖
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+
+      - name: Commit lockfile changes 📝
+        run: |
+          git add .
+          git commit -m "chore: update lockfile"
+          git push
   dependabot:
     runs-on: ubuntu-latest
+    name: 'Automerge Dependabot PRs'
     if: ${{ github.actor == 'dependabot[bot]' }}
+    needs:
+      - lockfile
     steps:
       - name: Dependabot metadata 🤖
         id: metadata
