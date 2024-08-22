@@ -26,7 +26,7 @@
   "dependencies": {
     "@nuxt/eslint": "^0.5.1",
     "@vinayakkulkarni/canvas-module": "^0.0.10",
-    "nuxt": "^3.12.4",
+    "nuxt": "^3.13.0",
     "vue": "^3.4.38"
   },
   "devDependencies": {
