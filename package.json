@@ -24,7 +24,7 @@
     "tunnel": "bunx cloudflared tunnel --url http://localhost:3000"
   },
   "dependencies": {
-    "@nuxt/eslint": "^0.5.1",
+    "@nuxt/eslint": "^0.5.6",
     "@vinayakkulkarni/canvas-module": "^0.0.10",
     "nuxt": "^3.12.4",
     "vue": "^3.4.38"
